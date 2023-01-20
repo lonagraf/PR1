@@ -1,11 +1,6 @@
 ﻿Cabinet cabinet = new Cabinet();
-cabinet.ZavCabinet = "Иванов И.И.";
-cabinet.Square = 100;
 
 Podsobka podsobka = new Podsobka();
-podsobka.ZavCabinet = "Петров П.П.";
-podsobka.Square = 45;
-podsobka.SquarePodsobka = 15;
 
 Console.WriteLine(cabinet.Show());
 Console.WriteLine(podsobka.Show());
@@ -13,6 +8,11 @@ public class Cabinet
 {
     private string _zavCabinet;
     private int _square;
+    public Cabinet()
+    {
+        _zavCabinet = "Иванов И.И.";
+        _square = 100;
+    }
     public string ZavCabinet 
     {
         get { return _zavCabinet; }
@@ -41,6 +41,12 @@ public class Cabinet
 public class Podsobka : Cabinet
 {
     private int _squarePodsobka;
+    public Podsobka()
+    {
+        ZavCabinet = "Петров П.П.";
+        Square = 45;
+        _squarePodsobka = 15;
+    }
     public int SquarePodsobka
     {
         get { return _squarePodsobka; }
