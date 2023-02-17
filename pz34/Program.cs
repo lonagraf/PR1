@@ -1,4 +1,13 @@
-﻿Cabinet cabinet = new Cabinet();
+﻿var classes = new List<Cabinet>
+{
+    new Cabinet("Иванов В.А.", 100),
+    new Cabinet("Ошаров В.В.", 50),
+    new Cabinet("Крид Е.Н.", 65),
+    new Cabinet("Иванов Ъ.Й.", 9)
+};
+var Classes = (from c in classes where c.Square < 10 select c.ZavCabinet).ToList();
+Classes.ForEach(c => Console.WriteLine(c));
+Cabinet cabinet = new Cabinet();
 
 Podsobka podsobka = new Podsobka();
 
@@ -33,9 +42,14 @@ public class Cabinet
             }
         }
     }
+    public Cabinet (string zavcabinet, int square) 
+    {
+        this.ZavCabinet = zavcabinet;
+        this.Square = square;
+    }
     public virtual string Show()
     {
-        return "Заведующий кабинетом: " + _zavCabinet + " Площадь кабинета: " + _square + "кв.м.";
+        return "Заведующий кабинетом: " + _zavCabinet + " Площадь кабинета: " + _square + " кв.м.";
     }
 }
 public class Podsobka : Cabinet
@@ -64,6 +78,6 @@ public class Podsobka : Cabinet
     }
     public override string Show()
     {
-        return "Заведующий кабинетом: " + ZavCabinet + " Площадь кабинета: " + Square + "кв.м. Площадь подсобки: " + _squarePodsobka + "кв.м.";
+        return "Заведующий кабинетом: " + ZavCabinet + " Площадь кабинета: " + Square + " кв.м. Площадь подсобки: " + _squarePodsobka + " кв.м.";
     }
 }
