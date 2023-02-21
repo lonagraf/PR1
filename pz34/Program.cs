@@ -8,9 +8,7 @@
 var Classes = (from c in classes where c.Square < 10 select c.ZavCabinet).ToList();
 Classes.ForEach(c => Console.WriteLine(c));
 Cabinet cabinet = new Cabinet();
-
 Podsobka podsobka = new Podsobka();
-
 Console.WriteLine(cabinet.Show());
 Console.WriteLine(podsobka.Show());
 public class Cabinet 
